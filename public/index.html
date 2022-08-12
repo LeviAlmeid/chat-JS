@@ -20,7 +20,8 @@
     </form>
 
     <script type="text/javascript">
-        var socket = io('http://192.168.1.139:3000');
+        //Para rodar em rede, basta colocar o IP da máquina no local:
+        var socket = io('http://localhost:3000');
 
         function renderMessage(message) {
             $('.messages').append('<div class="message"><strong>'+ message.author+ "</strong>: " + message.message +'</div>')
@@ -53,6 +54,9 @@
 
                 socket.emit('sendMessage', messageObject)
             }
+            var message = $('input[name=message]').val("");
+
+
         })
     </script>
 </body>
